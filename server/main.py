@@ -8,7 +8,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 @app.route("/board")
 @cross_origin()
 def index():
-    return {"board": ['x ', ' ', ' ', 'o ', ' ', ' ', ' x', ' ', ' x']}
+    return {"board": ['', '', '', '', '', '', '', '', '']}
 
 if __name__ == "__main__":
     app.run(debug=True)

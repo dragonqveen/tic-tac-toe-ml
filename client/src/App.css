@@ -1,21 +1,40 @@
+body {
+  display: flex;
+  background: #2e3635;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: monospace;
+}
+
 .board-wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  background: blanchedalmond;
   width: fit-content;
 }
 
 .tile-wrapper {
   border: 1px solid black;
-  width: 64px;
-  height: 64px;
+  width: 128px;
+  height: 128px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: #645E9D;
+  transition: 0.1s ease-in-out;
+  user-select: none;
+}
+
+.tile-wrapper.free {
+  cursor: pointer;
+}
+
+.tile-wrapper.free:hover {
+  background: #392B58;
 }
 
 .tile-wrapper div{
-  font-family: monospace;
-  font-size: 32px;
+  font-size: 48px;
   font-weight: bold;
+  text-transform: uppercase;
 }

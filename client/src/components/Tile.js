@@ -1,16 +1,9 @@
 import React, {useState, useEffect} from 'react'
 
-function Tile({value}){
-  const [data, setData] = useState([value])
-
+function Tile({value, onTileClick}){
   return (
-    <div className="tile-wrapper">
-      {(typeof data === "undefined") ? (
-        <p>Loading...</p>
-      ):(
-        <div>{data}</div>
-      )}
-
+    <div className={`tile-wrapper ${!value ? 'free' : ''} `} onClick={onTileClick}>
+        <div >{value}</div>
     </div>
   )
 }

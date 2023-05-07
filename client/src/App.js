@@ -20,7 +20,7 @@ function App(){
     <div>
       {(typeof data.board === "undefined") ? (
         <p>Loading...</p>
-      ): <Board data={data}></Board>
+      ): <Board value={data}></Board>
       }
 
     </div>
