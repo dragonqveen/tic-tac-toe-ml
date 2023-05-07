@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from 'react'
+import Board from './components/Board'
+import './App.css'
 
 function App(){
   const [data, setData] = useState([{}])
@@ -18,11 +20,8 @@ function App(){
     <div>
       {(typeof data.members === "undefined") ? (
         <p>Loading...</p>
-      ):(
-        data.members.map((member, i) => (
-          <p key={i}>{member}</p>
-        ))
-      )}
+      ): <Board></Board>
+      }
 
     </div>
   )
