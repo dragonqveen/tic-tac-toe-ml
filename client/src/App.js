@@ -6,7 +6,7 @@ function App(){
   const [data, setData] = useState([{}])
 
   useEffect(() => {
-    fetch("https://dragonqveen-ubiquitous-space-yodel-5xqr6777w493v74j-5000.preview.app.github.dev/members").then(
+    fetch("https://dragonqveen-ubiquitous-space-yodel-5xqr6777w493v74j-5000.preview.app.github.dev/board").then(
       res => res.json()
     ).then(
       data => {
@@ -18,9 +18,9 @@ function App(){
 
   return (
     <div>
-      {(typeof data.members === "undefined") ? (
+      {(typeof data.board === "undefined") ? (
         <p>Loading...</p>
-      ): <Board></Board>
+      ): <Board data={data}></Board>
       }
 
     </div>

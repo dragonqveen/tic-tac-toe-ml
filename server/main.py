@@ -5,10 +5,10 @@ app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-@app.route("/members")
+@app.route("/board")
 @cross_origin()
 def index():
-    return {"members": ["1", "2", "3", "4"]}
+    return {"board": ['x ', ' ', ' ', 'o ', ' ', ' ', ' x', ' ', ' x']}
 
 if __name__ == "__main__":
     app.run(debug=True)
