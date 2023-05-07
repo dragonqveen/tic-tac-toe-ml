@@ -8,7 +8,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 @app.route("/members")
 @cross_origin()
 def index():
-    return render_template("index.html")
+    return {"members": ["1", "2", "3", "4"]}
 
 if __name__ == "__main__":
     app.run(debug=True)

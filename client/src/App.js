@@ -4,18 +4,27 @@ function App(){
   const [data, setData] = useState([{}])
 
   useEffect(() => {
-    fetch("/members").then(
+    fetch("https://dragonqveen-ubiquitous-space-yodel-5xqr6777w493v74j-5000.preview.app.github.dev/members").then(
       res => res.json()
     ).then(
       data => {
         setData(data)
-        console.loge(data)
+        console.log(data)
       }
     )
-  })
+  }, [])
 
   return (
-    <div></div>
+    <div>
+      {(typeof data.members === "undefined") ? (
+        <p>Loading...</p>
+      ):(
+        data.members.map((member, i) => (
+          <p key={i}>{member}</p>
+        ))
+      )}
+
+    </div>
   )
 }
 
