@@ -16,6 +16,10 @@ cd server
 ```
 
 ```
+virtualenv env
+```
+
+```
 source env/bin/activate
 ```
 
