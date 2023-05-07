@@ -33,3 +33,5 @@ cd client
 ```
 npm start
 ```
+
+:rotating_light: Please note that in the file `client/src/App.js` there's a hardcoded url. Replace it if needed x)
