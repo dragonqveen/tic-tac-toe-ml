@@ -25,11 +25,11 @@ body {
   user-select: none;
 }
 
-.tile-wrapper.free {
+.unlocked .tile-wrapper.free {
   cursor: pointer;
 }
 
-.tile-wrapper.free:hover {
+.unlocked .tile-wrapper.free:hover {
   background: #392B58;
 }
 

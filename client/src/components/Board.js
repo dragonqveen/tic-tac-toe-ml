@@ -24,10 +24,12 @@ function Board(){
       .catch((err) => console.log('error'))
   }
 
-  useEffect(() => sendUpdatedBoard, [tiles])
+  useEffect(() => {if (boardStatus == "Começando" || boardStatus == "Em Andamento"){ 
+    sendUpdatedBoard()
+  }}, [tiles])
 
   function handleClick(i) {
-    if(!tiles[i] && boardStatus=='Em Andamento'){
+    if(!tiles[i] && (boardStatus=='Começando' || boardStatus=='Em Andamento')){
         tiles[i] = currentPlayer
         setTiles([...tiles])
         setCurrentPlayer(currentPlayer == 'x' ? 'o' : 'x')
@@ -44,7 +46,7 @@ function Board(){
     <h3>Game status: {boardStatus}</h3>
     <h3>Correct predictions: 0/0</h3>
 
-    <div className="board-wrapper">
+    <div className={`board-wrapper ${boardStatus == 'Em Andamento' || boardStatus == 'Começando' ? 'unlocked' : ''} `}>
       {(typeof tiles === "undefined") ? (
         <p>Loading...</p>
       ):(
@@ -54,8 +56,14 @@ function Board(){
       )}
 
     </div>
+    <br/><br/>
     <div>
-      <button onClick={() => {setTiles(['', '', '', '', '', '', '', '', '']),setCurrentPlayer('x'),setBoardStatus("Começando")}}>
+      <button onClick={(e) => {
+          e.preventDefault()
+          setBoardStatus("Começando")
+          setTiles(['', '', '', '', '', '', '', '', ''])
+          setCurrentPlayer('x')
+        }}>
         Restart
       </button>
     </div>
