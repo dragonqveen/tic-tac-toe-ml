@@ -38,8 +38,8 @@ function Board(){
 
   return (
     <>
-    <h2>Player 1: X</h2>
-    <h2>Player 2: O</h2>
+    <h2>Player 1: X {currentPlayer === 'x' && <span>Your turn!</span>}</h2>
+    <h2>Player 2: O {currentPlayer === 'o' && <span>Your turn!</span>}</h2>
 
     <h3>{boardStatus}</h3>
 

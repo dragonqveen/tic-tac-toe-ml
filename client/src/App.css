@@ -33,8 +33,19 @@ body {
   background: #392B58;
 }
 
-.tile-wrapper div{
+.tile-wrapper div {
   font-size: 48px;
   font-weight: bold;
   text-transform: uppercase;
+  font-family: cursive;
+}
+
+h2 > span {
+  background: #228b22;
+  padding: 4px 6px;
+  border-radius: 5px;
+  font-size: 12px;
+  text-transform: uppercase;
+  vertical-align: middle;
+  font-weight: normal;
 }
