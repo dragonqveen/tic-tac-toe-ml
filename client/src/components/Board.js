@@ -40,8 +40,9 @@ function Board(){
     <>
     <h2>Player 1: X {currentPlayer === 'x' && <span>Your turn!</span>}</h2>
     <h2>Player 2: O {currentPlayer === 'o' && <span>Your turn!</span>}</h2>
-
-    <h3>{boardStatus}</h3>
+    <hr/>
+    <h3>Game status: {boardStatus}</h3>
+    <h3>Correct predictions: 0/0</h3>
 
     <div className="board-wrapper">
       {(typeof tiles === "undefined") ? (
