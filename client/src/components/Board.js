@@ -6,7 +6,7 @@ function Board(){
   const [currentPlayer, setCurrentPlayer] = useState('x')
 
   // nao iniciado, em andamento, finalizado
-  const [boardStatus, setBoardStatus] = useState("Not started yet")
+  const [boardStatus, setBoardStatus] = useState("Começando")
 
   const sendUpdatedBoard = () => {
     fetch('/', {
@@ -27,7 +27,7 @@ function Board(){
   useEffect(() => sendUpdatedBoard, [tiles])
 
   function handleClick(i) {
-    if(!tiles[i]){
+    if(!tiles[i] && boardStatus=='Em Andamento'){
         tiles[i] = currentPlayer
         setTiles([...tiles])
         setCurrentPlayer(currentPlayer == 'x' ? 'o' : 'x')
@@ -53,6 +53,11 @@ function Board(){
           ))
       )}
 
+    </div>
+    <div>
+      <button onClick={() => {setTiles(['', '', '', '', '', '', '', '', '']),setCurrentPlayer('x'),setBoardStatus("Começando")}}>
+        Restart
+      </button>
     </div>
     </>
   )
