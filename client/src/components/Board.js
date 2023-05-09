@@ -20,7 +20,7 @@ function Board(){
       }),
     })
       .then((res) => res.json())
-      .then((result) => console.log(result))
+      .then((result) => setBoardStatus(result))
       .catch((err) => console.log('error'))
   }
 
@@ -32,17 +32,11 @@ function Board(){
         setTiles([...tiles])
         setCurrentPlayer(currentPlayer == 'x' ? 'o' : 'x')
     }
-    
-    console.log(tiles)
   }
 
   useEffect(()=>{},[tiles])
 
   return (
-    (typeof tiles === "undefined") ? (
-        <p>Loading...</p>
-      ): (
-      
     <>
     <h2>Player 1: X</h2>
     <h2>Player 2: O</h2>
@@ -60,7 +54,6 @@ function Board(){
 
     </div>
     </>
-    )
   )
 }
 
