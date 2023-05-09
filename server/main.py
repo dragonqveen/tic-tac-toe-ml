@@ -1,14 +1,17 @@
-from flask import Flask, render_template
+from flask import Flask, request, jsonify
 from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-@app.route("/board")
+@app.route("/", methods=["GET", "POST"])
 @cross_origin()
 def index():
-    return {"board": ['', '', '', '', '', '', '', '', '']}
+    if(request.method == 'POST'):
+        return jsonify("Successfully received POST request")
+    else:
+        return jsonify("Invalid method " + request.method)
 
 if __name__ == "__main__":
     app.run(debug=True)

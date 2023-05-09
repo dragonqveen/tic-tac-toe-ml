@@ -8,21 +8,23 @@ function Board(){
   // nao iniciado, em andamento, finalizado
   const [boardStatus, setBoardStatus] = useState("Not started yet")
 
-    const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'mode': 'no-cors'},
-        body: JSON.stringify({'content': "ddsadsadsa"})
-    };
+  const sendUpdatedBoard = () => {
+    fetch('/', {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        board: tiles,
+      }),
+    })
+      .then((res) => res.json())
+      .then((result) => console.log(result))
+      .catch((err) => console.log('error'))
+  }
 
-  useEffect(() => {
-    fetch("/board", requestOptions)
-    .then(res => res.json())
-    .then(data => {
-        //setData(data)
-        console.log("board status: " + data)
-      }
-    )
-  }, [tiles])
+  useEffect(() => sendUpdatedBoard, [tiles])
 
   function handleClick(i) {
     if(!tiles[i]){
