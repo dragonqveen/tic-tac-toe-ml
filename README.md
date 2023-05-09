@@ -24,6 +24,10 @@ source env/bin/activate
 ```
 
 ```
+pip install flask flask-cors
+```
+
+```
 python main.py
 ```
   
