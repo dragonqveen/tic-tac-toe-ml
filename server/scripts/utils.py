@@ -14,5 +14,12 @@ def convert(val):
         return 2.0
 
 def get_board_status(entrada):
-    saidaPredita = model.predict([list(map(convert, entrada))])
-    return saidaPredita.tolist()
+    qnt_spv=entrada.count("")#conta quantos espaços vazios existem
+    if qnt_spv <= 4:
+        saidaPredita = model.predict([list(map(convert, entrada))])
+        print(saidaPredita)
+        if 'positive\n' in saidaPredita:
+            return 'Ganhou'
+        if qnt_spv == 0:
+             return'Empate'
+    return 'Em Andamento'        
