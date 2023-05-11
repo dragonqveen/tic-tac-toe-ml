@@ -11,7 +11,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 def index():
     if(request.method == 'POST'):
         board = request.get_json().get('board')
-
+        
         return jsonify(utils.get_board_status(board))
     else:
         return jsonify("Invalid method " + request.method)

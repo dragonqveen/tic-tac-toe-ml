@@ -11,7 +11,7 @@ entrada = []
 saidaDesejada = []
 
 print("Printando os dados para Treino")
-with open('datasets/data_treine.txt') as arq:
+with open('datasets/dataset_train.txt') as arq:
     for line in arq:
         p = line.replace('x', '1').replace('o', '0').replace('b', '2')
         coluna = p.split(',')
@@ -33,7 +33,7 @@ print('Treinando...')
 # model = MLPClassifier(verbose=True)  #Exibindo o treinamento, onde iteração é a época e loss é o erro quadrado médio
 # '''
 model = MLPClassifier(
-    hidden_layer_sizes=(6,),
+    hidden_layer_sizes=(13,),
     max_iter=500,
     verbose=True,
     learning_rate='constant',
@@ -51,7 +51,7 @@ entrada = []
 saidaDesejada = []
 
 print("Printando os dados para Treino")
-with open('datasets/data_test.txt') as arq:
+with open('datasets/dataset_teste.txt') as arq:
     for line in arq:
         p = line.replace('x', '1').replace('o', '0').replace('b', '2')
         coluna = p.split(',')

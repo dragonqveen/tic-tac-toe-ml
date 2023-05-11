@@ -20,6 +20,11 @@ def get_board_status(entrada):
         print(saidaPredita)
         if 'positive\n' in saidaPredita:
             return 'Ganhou'
-        if qnt_spv == 0:
-             return'Empate'
-    return 'Em Andamento'        
+        elif 'draw\n' in saidaPredita:
+            return 'Empate'
+        
+    return 'Em Andamento'   
+
+        #if qnt_spv == 0:
+             #return'Empate'
+      
